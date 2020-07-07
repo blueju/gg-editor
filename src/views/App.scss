@@ -1,0 +1,120 @@
+html,
+body {
+  height: 100%;
+}
+
+.app {
+  header {
+    height: 40px;
+    line-height: 40px;
+    font-size: large;
+    font-weight: bold;
+    padding-left: 10px;
+    background-color: #fbfbfb;
+    box-sizing: border-box;
+    border-bottom: 1px solid #dadce0;
+  }
+
+  .editor {
+    width: 100%;
+    height: 100%;
+
+    .toolbar {
+      width: 100%;
+      height: 34px;
+      background-color: #fbfbfb;
+      box-sizing: border-box;
+      border-bottom: 1px solid #dadce0;
+      padding: 0 10px;
+      display: flex;
+
+      // 覆盖 ggeditor Command 组件中，类名为 command 的默认样式
+      .command {
+        display: flex;
+        // 垂直居中
+        align-items: center;
+        padding-right: 4px;
+        i {
+          font-size: 18px;
+          padding: 4px;
+          color: #999999;
+          // 为了让图标垂直居中
+          &:hover {
+            cursor: pointer;
+            background-color: #eeeeee;
+            color: #3796f5;
+          }
+        }
+      }
+    }
+
+    .itempanel {
+      border-right: 1px solid #dadce0;
+      box-sizing: border-box;
+      // 高度自适应填充方式一：
+      // height: calc(100vh - 34px - 40px);
+      // 高度自适应填充方式二：
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      & > div {
+        text-align: center;
+      }
+    }
+
+    .flow {
+      background-color: #f6f7f9;
+      // 高度自适应填充方式一：
+      height: calc(100vh - 34px - 40px);
+      // 高度自适应填充方式二：
+      // display: flex;
+      // flex-direction: column;
+      // height: 100%;
+    }
+
+    .detailpanel {
+      // 高度自适应填充方式一：
+      height: calc(100vh - 34px - 40px);
+      // 高度自适应填充方式二：
+      // display: flex;
+      // flex-direction: column;
+      // height: 100%;
+      box-sizing: border-box;
+      border-left: 1px solid #dadce0;
+    }
+  }
+}
+
+// .toolbar {
+//   display: flex;
+//   // width: 100%;
+//   // 垂直居中
+//   align-items: center;
+//   padding: 8px;
+//   border-bottom: 1px solid #e8e8e8;
+//   background: #ffffff;
+
+//   .command i {
+//     display: inline-block;
+//     width: 27px;
+//     height: 27px;
+//     margin: 0 6px;
+//     padding-top: 6px;
+//     text-align: center;
+//     border: 1px solid #fff;
+//     cursor: pointer;
+
+//     &:hover {
+//       border: 1px solid #e8e8e8;
+//     }
+//   }
+
+//   .commandDisabled i {
+//     color: rgba(0, 0, 0, 0.25);
+//     cursor: auto;
+
+//     &:hover {
+//       border: 1px solid #fff;
+//     }
+//   }
+// }

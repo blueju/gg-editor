@@ -1,26 +1,16 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
-import './style.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React'
-    };
-  }
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 
-  render() {
-    return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-      </div>
-    );
-  }
-}
+import App from './views/App.jsx';
 
-render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <React.StrictMode>
+    <ConfigProvider locale={zhCN}>
+      <App />
+    </ConfigProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
