@@ -34,6 +34,7 @@ body {
         // 垂直居中
         align-items: center;
         padding-right: 4px;
+
         i {
           font-size: 18px;
           padding: 4px;
@@ -57,8 +58,13 @@ body {
       display: flex;
       flex-direction: column;
       height: 100%;
+
       & > div {
         text-align: center;
+
+        img {
+          cursor: move;
+        }
       }
     }
 

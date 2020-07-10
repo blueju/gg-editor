@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-
-import { Col, Row, Tooltip } from 'antd';
+import { Col, Menu, Row, Tooltip } from 'antd';
 import 'antd/dist/antd.css';
 import './App.scss';
 import 'font-awesome/css/font-awesome.min.css';
-import { NodePanel, EdgePanel, MultiPanel, CanvasPanel } from '../components/detailpanel';
-
+import { CanvasPanel, EdgePanel, MultiPanel, NodePanel } from '../components/detailpanel';
 /**
  * GGEditor       编辑器主控
  * Flow           流程图
  */
-import GGEditor, { Command, constants, Flow, EditableLabel, ItemPanel, Item } from 'gg-editor';
+import GGEditor, { Command, constants, ContextMenu, EditableLabel, Flow, Item, ItemPanel } from 'gg-editor';
 
 const { EditorCommand } = constants;
 
@@ -39,6 +37,8 @@ const data = {
 };
 
 class App extends Component {
+
+
   constructor() {
     super();
     this.state = {
@@ -46,11 +46,22 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log(this.editorRef);
+    setTimeout(() => {
+      this.editorRef.current.state.graph.on(constants.GraphNodeEvent.onNodeClick, (graphEvent) => {
+        console.log(graphEvent.item.getModel());
+      });
+    }, 0);
+  }
+
+  editorRef = React.createRef();
+
   render() {
     return (
       <div className="app">
         <header>ggeditor</header>
-        <GGEditor className="editor">
+        <GGEditor ref={this.editorRef} className="editor">
           {/* 工具栏 */}
           <Row>
             <Col span={24}>
@@ -70,10 +81,22 @@ class App extends Component {
                     <i className="fa fa-trash-o" />
                   </Tooltip>
                 </Command>
+                <Command name={EditorCommand.ZoomOut}>
+                  <Tooltip title="放大">
+                    <i className="fa fa-search-plus" />
+                  </Tooltip>
+                </Command>
+                <Command name={EditorCommand.ZoomIn}>
+                  <Tooltip title="缩小">
+                    <i className="fa fa-search-minus" />
+                  </Tooltip>
+                </Command>
               </div>
             </Col>
           </Row>
+          {/* 元素面板 + 画布 + 详情面板 */}
           <Row>
+            {/* 元素面板 */}
             <Col flex="160px">
               <ItemPanel className="itempanel">
                 <Item
@@ -84,6 +107,7 @@ class App extends Component {
                   }}
                 >
                   <img
+                    alt="圆"
                     src="https://gw.alicdn.com/tfs/TB1IRuSnRr0gK0jSZFnXXbRRXXa-110-112.png"
                     width="90"
                     height="90"
@@ -98,6 +122,7 @@ class App extends Component {
                   }}
                 >
                   <img
+                    alt="矩形"
                     src="https://s1.ax1x.com/2020/07/07/UAtT1I.png"
                     width="90"
                     height="90"
@@ -112,6 +137,7 @@ class App extends Component {
                   }}
                 >
                   <img
+                    alt="矩形"
                     src="https://gw.alicdn.com/tfs/TB1reKOnUT1gK0jSZFrXXcNCXXa-178-76.png"
                     width="90"
                     height="90"
@@ -126,6 +152,7 @@ class App extends Component {
                   }}
                 >
                   <img
+                    alt="椭圆"
                     src="https://gw.alicdn.com/tfs/TB1AvmVnUH1gK0jSZSyXXXtlpXa-216-126.png"
                     width="90"
                     height="90"
@@ -140,6 +167,7 @@ class App extends Component {
                   }}
                 >
                   <img
+                    alt="菱形"
                     src="https://gw.alicdn.com/tfs/TB1EB9VnNz1gK0jSZSgXXavwpXa-178-184.png"
                     width="90"
                     height="90"
@@ -154,6 +182,7 @@ class App extends Component {
                   }}
                 >
                   <img
+                    alt="三角形"
                     src="https://gw.alicdn.com/tfs/TB12sC2nKH2gK0jSZJnXXaT1FXa-126-156.png"
                     width="90"
                     height="90"
@@ -162,6 +191,7 @@ class App extends Component {
                 </Item>
               </ItemPanel>
             </Col>
+            {/* 画布 */}
             <Col flex="auto">
               <div style={{ position: 'relative' }}>
                 <Flow
@@ -178,6 +208,7 @@ class App extends Component {
                 />
               </div>
             </Col>
+            {/* 详情面板 */}
             <Col flex="300px">
               <div className="detailpanel">
                 <NodePanel />
@@ -187,7 +218,77 @@ class App extends Component {
               </div>
             </Col>
           </Row>
+          {/* 标签编辑 */}
           <EditableLabel />
+          {/* 右键菜单 */}
+          <div className="contextmenu">
+            <ContextMenu
+              type="canvas"
+              renderContent={(item, position, hide) => {
+                const { x: left, y: top } = position;
+                return (
+                  <div style={{ position: 'absolute', top, left }}>
+                    <Menu mode="vertical" selectable={false} onClick={hide}>
+                      <Menu.Item>
+                        <Command name={EditorCommand.Undo}>
+                          撤销
+                        </Command>
+                      </Menu.Item>
+                      <Menu.Item>
+                        <Command name={EditorCommand.Redo}>
+                          重做
+                        </Command>
+                      </Menu.Item>
+                      <Menu.Item>
+                        <Command name={EditorCommand.PasteHere}>
+                          粘贴
+                        </Command>
+                      </Menu.Item>
+                    </Menu>
+                  </div>
+                );
+              }}
+            />
+            <ContextMenu
+              type="node"
+              renderContent={(item, position, hide) => {
+                const { x: left, y: top } = position;
+                return (
+                  <div style={{ position: 'absolute', top, left }}>
+                    <Menu mode="vertical" selectable={false} onClick={hide}>
+                      <Menu.Item>
+                        <Command name={EditorCommand.Copy}>
+                          复制
+                        </Command>
+                      </Menu.Item>
+                      <Menu.Item>
+                        <Command name={EditorCommand.Remove}>
+                          删除
+                        </Command>
+                      </Menu.Item>
+                    </Menu>
+                  </div>
+                );
+              }}
+            />
+            <ContextMenu
+              type="edge"
+              renderContent={(item, position, hide) => {
+                const { x: left, y: top } = position;
+                return (
+                  <div style={{ position: 'absolute', top, left }}>
+                    <Menu mode="vertical" selectable={false} onClick={hide}>
+                      <Menu.Item>
+                        <Command name={EditorCommand.Remove}>
+                          删除
+                        </Command>
+                      </Menu.Item>
+                    </Menu>
+                  </div>
+                );
+              }}
+            />
+          </div>
         </GGEditor>
       </div>
     );

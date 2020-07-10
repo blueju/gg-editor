@@ -31,15 +31,23 @@ class Panel extends React.Component {
           }
         });
       })
-      .catch((errorInfo) => {});
+      .catch((errorInfo) => {
+        throw new Error(errorInfo);
+      });
   };
 
   // 渲染节点详情
   renderNodeDetail = () => {
+    setTimeout(() => {
+      const { label } = this.props.nodes[0].getModel();
+      this.formRef.current.setFieldsValue({
+        label
+      });
+    });
     return (
       <Form ref={this.formRef} {...formItemLayout}>
         <Form.Item label="Label" name="label">
-          <Input onBlur={this.handleSubmit} />
+          <Input onBlur={this.handleSubmit} value="dwadwad" />
         </Form.Item>
       </Form>
     );
@@ -47,6 +55,12 @@ class Panel extends React.Component {
 
   // 渲染边详情
   renderEdgeDetail = () => {
+    setTimeout(() => {
+      const { label } = this.props.edges[0].getModel();
+      this.formRef.current.setFieldsValue({
+        label
+      });
+    });
     return (
       <Form ref={this.formRef} {...formItemLayout}>
         <Item label="Label" name="label">
@@ -78,6 +92,7 @@ class Panel extends React.Component {
     );
   }
 }
+
 // const WrappedPanel = Form.create({
 //   mapPropsToFields(props) {
 //     const { type, nodes, edges } = props;
