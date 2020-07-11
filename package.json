@@ -13,11 +13,13 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
+    "build:github": "dotenv -e .env.production.github react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "dotenv-cli": "^3.2.0",
     "eslint-config-alloy": "^3.7.3",
     "eslint-plugin-react": "^7.20.3",
     "node-sass-install": "^1.0.2",
