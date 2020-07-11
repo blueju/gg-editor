@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.9bf43a622d785e7ea08ded6a0c22bae1.js"
+  "https://blueju.github.io/ggeditor/build/precache-manifest.de8b6668678adfcfb46c8e103173f5bf.js"
 );
 
 self.addEventListener('message', (event) => {
