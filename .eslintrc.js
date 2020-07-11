@@ -19,5 +19,8 @@ module.exports = {
     },
     rules: {
         // 自定义你的规则
+        "default-case-last":"off",
+        "no-loss-of-precision":"off",
+        "no-useless-backreference":"off",
     }
 };
