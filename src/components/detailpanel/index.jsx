@@ -93,24 +93,6 @@ class Panel extends React.Component {
   }
 }
 
-// const WrappedPanel = Form.create({
-//   mapPropsToFields(props) {
-//     const { type, nodes, edges } = props;
-//     let label = '';
-//     if (type === 'node') {
-//       label = nodes[0].getModel().label;
-//     }
-//     if (type === 'edge') {
-//       label = edges[0].getModel().label;
-//     }
-//     return {
-//       label: Form.createFormField({
-//         value: label
-//       })
-//     };
-//   }
-// })(withEditorContext(Panel));
-
 // 分别是：节点详情面板、边详情面板、多选详情面板、画布详情面板
 export const NodePanel = DetailPanel.create('node')(withEditorContext(Panel));
 export const EdgePanel = DetailPanel.create('edge')(withEditorContext(Panel));

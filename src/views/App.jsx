@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Col, Menu, Row, Tooltip } from 'antd';
+import { Col, Menu, Row } from 'antd';
 import 'antd/dist/antd.css';
 import './App.scss';
 import 'font-awesome/css/font-awesome.min.css';
 import { CanvasPanel, EdgePanel, MultiPanel, NodePanel } from '../components/detailpanel';
+import Toolbar from '../components/toolbar';
 /**
  * GGEditor       编辑器主控
  * Flow           流程图
@@ -65,33 +66,7 @@ class App extends Component {
           {/* 工具栏 */}
           <Row>
             <Col span={24}>
-              <div className="toolbar">
-                <Command name={EditorCommand.Undo}>
-                  <Tooltip title="撤销">
-                    <i className="fa fa-undo" />
-                  </Tooltip>
-                </Command>
-                <Command name={EditorCommand.Redo}>
-                  <Tooltip title="重做">
-                    <i className="fa fa-repeat" />
-                  </Tooltip>
-                </Command>
-                <Command name={EditorCommand.Remove}>
-                  <Tooltip title="删除">
-                    <i className="fa fa-trash-o" />
-                  </Tooltip>
-                </Command>
-                <Command name={EditorCommand.ZoomOut}>
-                  <Tooltip title="放大">
-                    <i className="fa fa-search-plus" />
-                  </Tooltip>
-                </Command>
-                <Command name={EditorCommand.ZoomIn}>
-                  <Tooltip title="缩小">
-                    <i className="fa fa-search-minus" />
-                  </Tooltip>
-                </Command>
-              </div>
+              <Toolbar />
             </Col>
           </Row>
           {/* 元素面板 + 画布 + 详情面板 */}
