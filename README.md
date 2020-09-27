@@ -1,36 +1,29 @@
-<a name="ggeditor-chinese-doc"></a>
-# ggeditor-chinese-doc
-ggeditor 中文文档<br />
+# gg-editor
 
-<a name="HhixW"></a>
-## install
-推荐使用 yarn
+> GGEditor/ggeditor/gg-editor 文档整理
+
+## 前言
+
+
+
+## 运行
+
 ```bash
 yarn
+# or
+npm install
 ```
 
+## 构建
 
-<a name="Gesw6"></a>
-## build
 ```bash
 npm run build
 ```
 
+## 文档
 
-<a name="G9Mg1"></a>
-## doc
-[https://www.yuque.com/blueju/ggeditor](https://www.yuque.com/blueju/ggeditor)<br />
-<br />
+https://www.yuque.com/blueju/gg-editor
 
-<a name="H5S4k"></a>
-## github
-[https://github.com/blueju/ggeditor-chinese-doc](https://github.com/blueju/ggeditor-chinese-doc)<br />
-<br />本文档及 github 仓库提供的 demo 的主要依赖和版本信息：
+## 备注
 
-| antd | 4.4.1 |
-| --- | --- |
-| react | 16.12.0 |
-| gg-editor | 3.1.2 |
-
-
-<br />如果你正在使用 sofa 中基于 GGEditor 的 Seata Saga 状态机可视化图形设计器,，并希望在本文中寻找 GGEditor 的用法，有些遗憾地告诉你，可能两者之间的用法和 API 会有所不同，因为版本问题。
+如果你是从 `使用 sofa 中基于 GGEditor 的 Seata Saga 状态机可视化图形设计器` 中找过来的，并希望在本仓库中寻找 gg-editor 的用法，有些遗憾地告诉你，因为版本问题，可能两者之间的用法和 API 会有所不同，。
