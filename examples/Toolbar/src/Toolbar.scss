@@ -1,0 +1,13 @@
+.toolbar {
+  border: 1px solid #ebedf1;
+  padding: 8px;
+  .command {
+    display: inline-block;
+    font-size: 18px;
+    padding: 8px;
+    &:hover {
+      cursor: pointer;
+      background-color: #eeeeee;
+    }
+  }
+}
