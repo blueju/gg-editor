@@ -106,3 +106,6 @@ typings/
 
 # TernJS port file
 .tern-port
+
+# custome
+examples/**/node_modules
