@@ -3,7 +3,7 @@ import './style.css';
 
 import GGEditor, { Flow } from 'gg-editor';
 
-import Toolbar from './Toolbar';
+import Toolbar from './components/toolbar/index';
 
 const data = {
   nodes: [
@@ -34,7 +34,6 @@ export default function App() {
     <div>
       <h1>Hello StackBlitz!</h1>
       <p>Start editing to see some magic happen :)</p>
-      <hr />
       <GGEditor>
         <Toolbar />
         <Flow
@@ -43,7 +42,8 @@ export default function App() {
             height: 500,
             backgroundColor: '#f6f7f9',
             border: '1px solid #ebedf1',
-            borderTop: 'none'
+            borderTop: 'none',
+
           }}
           data={data}
         />

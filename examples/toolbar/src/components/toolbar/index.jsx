@@ -1,6 +1,6 @@
 import React from 'react';
 import { Command, constants } from 'gg-editor';
-import './Toolbar.scss';
+import './index.scss';
 
 const { EditorCommand } = constants;
 
