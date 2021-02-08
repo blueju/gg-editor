@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "gg-editor",
+  "name": "gg-editor-docs",
   "version": "1.0.0",
   "scripts": {
     "start": "dumi dev",
