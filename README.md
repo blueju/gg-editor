@@ -10,8 +10,6 @@
 ## 运行
 
 ```bash
-yarn
-# or
 npm install
 ```
 
