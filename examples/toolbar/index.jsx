@@ -1,9 +1,14 @@
-import GGEditor, { Flow, EditableLabel } from 'gg-editor';
+// 导入编辑器、流程图
+import GGEditor, { Flow } from 'gg-editor';
+// 字体图标
 import 'font-awesome/css/font-awesome.min.css';
 
+// 工具栏
 import Toolbar from './toolbar.jsx';
-import styles from './index.less';
 
+/**
+ * 图数据
+ */
 const data = {
   nodes: [
     {
@@ -33,8 +38,15 @@ const data = {
 export default () => {
   return (
     <GGEditor>
+      {/* 工具栏 */}
       <Toolbar />
-      <Flow className={styles.graph} data={data} />
+      {/* 流程图， */}
+      <Flow
+        data={data}
+        style={{
+          height: 500,
+        }}
+      />
     </GGEditor>
   );
 };
