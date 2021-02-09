@@ -40,12 +40,14 @@ export default () => {
     <GGEditor>
       {/* 工具栏 */}
       <Toolbar />
-      {/* 流程图， */}
+      {/* 流程图 */}
       <Flow
         data={data}
-        style={{
-          height: 500,
-        }}
+        style={
+          {
+            // height: 500,
+          }
+        }
       />
     </GGEditor>
   );
