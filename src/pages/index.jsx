@@ -6,6 +6,8 @@ import GGEditor from 'gg-editor';
 import Toolbar from '../components/Toolbar';
 // 流程图
 import Flow from '../components/Flow';
+// 元素面板
+import ItemPanel from '../components/ItemPanel';
 
 export default function IndexPage() {
   return (
@@ -16,8 +18,10 @@ export default function IndexPage() {
         </Col>
       </Row>
       <Row>
-        {/* <Col flex={300}></Col> */}
-        <Col span={24}>
+        <Col flex="160px">
+          <ItemPanel />
+        </Col>
+        <Col flex="auto">
           <Flow />
         </Col>
         {/* <Col></Col> */}
