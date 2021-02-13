@@ -1,0 +1,24 @@
+// 工具栏
+.toolbar {
+  border: 1px solid #ebedf1;
+  padding: 8px;
+  :global {
+    // 命令
+    .command {
+      // 水平排列
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      // 水平居中
+      text-align: center;
+      // 垂直居中
+      vertical-align: bottom;
+      font-size: 18px;
+      &:hover {
+        cursor: pointer;
+        background-color: #eeeeee;
+      }
+    }
+  }
+}
