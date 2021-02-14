@@ -8,6 +8,8 @@ import Toolbar from '../components/Toolbar';
 import Flow from '../components/Flow';
 // 元素面板
 import ItemPanel from '../components/ItemPanel';
+// 右键菜单
+import ContextMenu from '../components/ContextMenu';
 
 export default function IndexPage() {
   return (
@@ -26,6 +28,8 @@ export default function IndexPage() {
         </Col>
         {/* <Col></Col> */}
       </Row>
+      {/* 布局之外的东西 */}
+      <ContextMenu />
     </GGEditor>
   );
 }
