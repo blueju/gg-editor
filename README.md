@@ -1,15 +1,1 @@
-# umi project
-
-## Getting Started
-
-Install dependencies,
-
-```bash
-$ yarn
-```
-
-Start the dev server,
-
-```bash
-$ yarn start
-```
+# 为每个功能都重新搭建一个工程，太繁琐了，没太多时间，因此打算一个工程搞定所有。
