@@ -1,31 +1,28 @@
-# 注意：该分支已丢弃
-
-> 为什么不删？因为不舍弃刚提交的代码。
-
 # gg-editor
 
-## Getting Started
+> 绝对是全网最详细的 gg-editor 教程
 
-Install dependencies,
+## 前言
 
-```bash
-$ npm i
-```
+官网中叫 GGEditor，但其 npm 仓库又叫 gg-editor。
+如果将本仓库命名为 ggeditor，又会影响到本人对官方仓库的 fork（重名），因此最终将本仓库定名为 gg-editor（类似 g6-editor），并在后续的称呼中一概统称 gg-editor。
 
-Start the dev server,
-
-```bash
-$ npm start
-```
-
-Build documentation,
+## 安装依赖
 
 ```bash
-$ npm run docs:build
+yarn
 ```
 
-Build library via `father-build`,
+## 运行
 
 ```bash
-$ npm run build
+npm run start
 ```
+
+## 文档
+
+https://www.yuque.com/blueju/gg-editor
+
+## 备注
+
+如果你是从 `使用 sofa 中基于 GGEditor 的 Seata Saga 状态机可视化图形设计器` 中找过来的，并希望在本仓库中寻找一些 gg-editor 的用法的话，比较遗憾地告诉你这不一定可行，由于 gg-editor 版本问题，两者之间的 API 有所不同。
