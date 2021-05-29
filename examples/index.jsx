@@ -1,5 +1,10 @@
 // 导入编辑器、流程图
 import GGEditor, { Flow } from 'gg-editor';
+// 字体图标
+import 'font-awesome/css/font-awesome.min.css';
+
+// 工具栏
+import Toolbar from './components/toolbar';
 
 /**
  * 图数据
@@ -33,7 +38,9 @@ const data = {
 export default () => {
   return (
     <GGEditor>
-      {/* 流程图， */}
+      {/* 工具栏 */}
+      <Toolbar />
+      {/* 流程图 */}
       <Flow
         data={data}
         style={{

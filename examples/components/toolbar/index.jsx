@@ -1,7 +1,7 @@
 // 导入命令、常量
 import { Command, constants } from 'gg-editor';
 // 导入样式
-import styles from './toolbar.less';
+import styles from './index.less';
 
 // 解构赋值编辑器命令
 const { EditorCommand } = constants;

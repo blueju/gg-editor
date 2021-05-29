@@ -1,2 +1,7 @@
+---
+title: Index
+---
 
-## Hello gg-editor!
+# Index
+
+<code src="../examples"></code>
