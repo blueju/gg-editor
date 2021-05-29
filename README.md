@@ -10,13 +10,7 @@
 ## 运行
 
 ```bash
-npm install
-```
-
-## 构建
-
-```bash
-npm run build
+yarn
 ```
 
 ## 文档
